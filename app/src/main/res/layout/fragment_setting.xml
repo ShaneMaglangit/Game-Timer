@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="settingViewModel"
+            type="com.example.multiplayertimer.setting.SettingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".setting.SettingFragment">
+
+        <TextView
+            android:id="@+id/text_players"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/text_player"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/radio_group_players"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_players"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkedButton="@={settingViewModel.playerCount}"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/text_start_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_players">
+
+            <RadioButton
+                android:id="@+id/toggle_player_two"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/player_number_bg_selector"
+                android:button="@null"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/toggle_two_text"
+                android:textAlignment="center"
+                android:textColor="@drawable/player_number_text_selector"
+                android:textOff="@null"
+                android:textOn="@null"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/toggle_player_three"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/player_number_bg_selector"
+                android:button="@null"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/toggle_three_text"
+                android:textAlignment="center"
+                android:textColor="@drawable/player_number_text_selector"
+                android:textOff="@null"
+                android:textOn="@null"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/toggle_player_four"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/player_number_bg_selector"
+                android:button="@null"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/toggle_four_text"
+                android:textAlignment="center"
+                android:textColor="@drawable/player_number_text_selector"
+                android:textOff="@null"
+                android:textOn="@null"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/text_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/text_time"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:textStyle="normal"
+            android:timePickerMode="spinner"
+            app:layout_constraintBottom_toTopOf="@+id/edit_start_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radio_group_players" />
+
+        <TextView
+            android:id="@+id/edit_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_rect"
+            android:backgroundTint="@color/colorDark"
+            android:clickable="true"
+            android:focusable="false"
+            android:fontFamily="@font/montserrat"
+            android:paddingStart="48dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="48dp"
+            android:paddingBottom="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorLight"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/button_open_timer"
+            app:layout_constraintEnd_toEndOf="@+id/text_start_time"
+            app:layout_constraintStart_toStartOf="@+id/text_start_time"
+            app:layout_constraintTop_toBottomOf="@+id/text_start_time"
+            app:time="@{settingViewModel.startTimeInMillis}"
+            tools:text="20:00" />
+
+        <Button
+            android:id="@+id/button_open_timer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorGreen"
+            android:fontFamily="@font/montserrat"
+            android:onClick="@{() -> settingViewModel.saveChanges()}"
+            android:padding="14dp"
+            android:text="@string/button_open_timer_text"
+            android:textColor="@color/colorLight"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

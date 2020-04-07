@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="timerViewModel"
+            type="com.example.multiplayertimer.timer.TimerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".timer.TimerFragment">
+
+        <Button
+            android:id="@+id/button_two"
+            style="@style/AppTheme.TimerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:onClick="@{() -> timerViewModel.nextPlayer(false)}"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:rotation="180"
+            android:textAlignment="center"
+            android:textSize="@dimen/timer_button_text"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:player="@{timerViewModel.playerTwo}"
+            tools:text="20:00" />
+
+        <ImageButton
+            android:id="@+id/button_kick_two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() -> timerViewModel.kickPlayer(2)}"
+            app:kickPlayer="@{timerViewModel.playerTwo}"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/button_two"
+            app:layout_constraintTop_toTopOf="@+id/button_two"
+            app:srcCompat="@drawable/ic_clear_24px" />
+
+        <com.example.multiplayertimer.custom.VerticalButton
+            android:id="@+id/button_three"
+            style="@style/AppTheme.TimerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:onClick="@{() -> timerViewModel.nextPlayer(false)}"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/timer_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:player="@{timerViewModel.playerThree}"
+            tools:text="20:00" />
+
+        <ImageButton
+            android:id="@+id/button_kick_three"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:onClick="@{() -> timerViewModel.kickPlayer(3)}"
+            app:kickPlayer="@{timerViewModel.playerThree}"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintStart_toStartOf="@+id/button_three"
+            app:layout_constraintTop_toBottomOf="@+id/button_three"
+            app:srcCompat="@drawable/ic_clear_24px" />
+
+        <ImageButton
+            android:id="@+id/button_center"
+            android:layout_width="@dimen/center_button_width"
+            android:layout_height="0dp"
+            android:background="@drawable/round"
+            android:longClickable="true"
+            android:onClick="@{() -> timerViewModel.toggleGameState(true)}"
+            app:layout_constraintBottom_toTopOf="@+id/button_one"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/button_three"
+            app:layout_constraintStart_toEndOf="@+id/button_four"
+            app:layout_constraintTop_toBottomOf="@+id/button_two" />
+
+        <com.example.multiplayertimer.custom.VerticalButton
+            android:id="@+id/button_four"
+            style="@style/AppTheme.TimerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:gravity="bottom|right|center"
+            android:onClick="@{() -> timerViewModel.nextPlayer(false)}"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:textColor="@color/colorLight"
+            android:textSize="@dimen/timer_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:player="@{timerViewModel.playerFour}"
+            tools:text="15:15" />
+
+        <ImageButton
+            android:id="@+id/button_kick_four"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:onClick="@{() -> timerViewModel.kickPlayer(4)}"
+            app:kickPlayer="@{timerViewModel.playerFour}"
+            app:layout_constraintBottom_toTopOf="@+id/button_four"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintEnd_toEndOf="@+id/button_four"
+            app:srcCompat="@drawable/ic_clear_24px" />
+
+        <Button
+            android:id="@+id/button_one"
+            style="@style/AppTheme.TimerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:onClick="@{() -> timerViewModel.nextPlayer(false)}"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:textAlignment="center"
+            android:textSize="@dimen/timer_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:player="@{timerViewModel.playerOne}"
+            tools:text="20:00" />
+
+        <ImageButton
+            android:id="@+id/button_kick_one"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:onClick="@{() -> timerViewModel.kickPlayer(1)}"
+            app:kickPlayer="@{timerViewModel.playerOne}"
+            app:layout_constraintBottom_toBottomOf="@+id/button_one"
+            app:layout_constraintDimensionRatio="w,1:1"
+            app:layout_constraintStart_toEndOf="@+id/button_one"
+            app:srcCompat="@drawable/ic_clear_24px" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

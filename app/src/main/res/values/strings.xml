@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Multiplayer Timer (MTG)</string>
+    <string name="text_player">Number of Players</string>
+    <string name="text_time">Start Time</string>
+    <string name="toggle_two_text">2</string>
+    <string name="toggle_three_text">3</string>
+    <string name="toggle_four_text">4</string>
+    <string name="text_time_separator">:</string>
+    <string name="button_open_timer_text">Open Timer</string>
+    <string name="start_time_dialog_title">Set Starting Time</string>
+    <string name="dialog_seconds_text">Seconds</string>
+    <string name="dialog_minutes_text">Minutes</string>
+    <string name="dialog_time_title">SET TIME</string>
+</resources>

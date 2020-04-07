@@ -1,0 +1,40 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorGreen</item>
+        <item name="colorPrimaryDark">@color/colorDarkGreen</item>
+        <item name="colorOnPrimary">@color/colorLight</item>
+        <item name="colorSecondary">@color/colorRed</item>
+        <item name="colorOnSecondary">@color/colorLight</item>
+        <item name="colorAccent">@color/colorYellow</item>
+        <item name="fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorPrimary">@color/colorGreen</item>
+        <item name="colorPrimaryDark">@color/colorDarkGreen</item>
+        <item name="colorOnPrimary">@color/colorLight</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/AppTheme.Dialog.Button</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/AppTheme.Dialog.Button</item>
+    </style>
+
+    <style name="AppTheme.Dialog.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_marginLeft">8dp</item>
+    </style>
+
+    <style name="AppTheme.TimerButton" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">monospace</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">32dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.RedButton" parent="Widget.MaterialComponents.Button">
+        <item name="background">@drawable/round</item>
+        <item name="android:background">@drawable/round</item>
+    </style>
+
+</resources>
